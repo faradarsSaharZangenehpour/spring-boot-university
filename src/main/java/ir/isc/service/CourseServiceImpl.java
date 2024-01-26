@@ -3,6 +3,7 @@ package ir.isc.service;
 import ir.isc.exception.ResourceNotFoundException;
 import ir.isc.model.Course;
 import ir.isc.model.Product;
+import ir.isc.payload.request.CourseDto;
 import ir.isc.repository.CourseRepository;
 import ir.isc.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class CourseServiceImpl implements CourseService{
 
 
 	@Override
-	public Course createCourse(Course course) {
-		return courseRepository.save(course);
+	public Course createCourse(CourseDto courseDto) {
+		return courseRepository.save(new Course(courseDto.getName()));
 	}
 }

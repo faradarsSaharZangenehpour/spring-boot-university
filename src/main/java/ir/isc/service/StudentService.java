@@ -8,5 +8,5 @@ import org.springframework.stereotype.Service;
 
 public interface StudentService {
 
-    Student createStudent(Student student);
+    Student createStudent(StudentDto studentDto);
 }
