@@ -1,5 +1,6 @@
 package ir.isc.service;
 
+import ir.isc.model.Professor;
 import ir.isc.model.Student;
 import ir.isc.payload.request.StudentDto;
 import ir.isc.repository.ProductRepository;
@@ -13,7 +14,10 @@ public class StudentServiceImpl implements StudentService{
     @Autowired
     private StudentRepository studentRepository;
     @Override
-    public Student createStudent(Student student) {
-        return studentRepository.save(student);
+    public Student createStudent(StudentDto studentDto) {
+        return
+                studentRepository.save(new Student(studentDto.getName(), studentDto.getFamily(), studentDto.getFatherName(),
+                        studentDto.getAge(), studentDto.getTerm(), studentDto.getField()
+                ));
     }
 }
