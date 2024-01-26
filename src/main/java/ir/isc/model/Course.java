@@ -13,4 +13,10 @@ public class Course {
     @Column(name = "name")
     private String name;
 
+    public Course(){
+    }
+    public Course(String name){
+        this.name = name;
+    }
+
 }

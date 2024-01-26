@@ -1,9 +1,10 @@
 package ir.isc.service;
 
 import ir.isc.model.Professor;
+import ir.isc.payload.request.ProfessorDto;
 
 
 public interface ProfessorService {
 
-    Professor createProfessor(Professor professor);
+    Professor createProfessor(ProfessorDto professorDto);
 }
