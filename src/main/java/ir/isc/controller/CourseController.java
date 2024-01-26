@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.validation.Valid;
+
 @RestController
 public class CourseController {
 
@@ -19,7 +21,7 @@ public class CourseController {
     private CourseService courseService;
 
     @PostMapping("/create-course")
-    public ResponseEntity<?> createCourse(@RequestBody CourseDto courseDto){
+    public ResponseEntity<?> createCourse(@Valid @RequestBody CourseDto courseDto){
         //return ResponseEntity.ok().body(this.courseService.createCourse(courseDto));
         this.courseService.createCourse(courseDto);
         return ResponseEntity.ok(new MessageResponse("Course registered successfully!"));

@@ -16,7 +16,7 @@ public class ProfessorServiceImpl implements ProfessorService{
     @Override
     public Professor createProfessor(ProfessorDto professorDto) {
 
-        return professorRepository.save(new Professor(professorDto.getName(), professorDto.getFamily(), professorDto.getFatherName(),
+        return professorRepository.save(new Professor(professorDto.getNationalCode(), professorDto.getName(), professorDto.getFamily(), professorDto.getFatherName(),
                 professorDto.getAge(), professorDto.isFullTime(), professorDto.getField()
                 ));
     }

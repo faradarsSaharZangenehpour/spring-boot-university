@@ -1,15 +1,26 @@
 package ir.isc.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
-@Table(name = "professor")
+@Table(name = "professor",
+        uniqueConstraints = {
+                @UniqueConstraint(columnNames = "nationalCode")
+        })
 public class Professor {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @NotNull
+    @Min(10)
+    @Max(10)
+    @Column(name = "nationalCode")
+    private String nationalCode;
     @Column(name = "name")
     private String name;
 
@@ -32,7 +43,8 @@ public class Professor {
 
     }
 
-    public Professor(String name, String family, String fatherName, int age, boolean fullTime, String field){
+    public Professor(String nationalCode, String name, String family, String fatherName, int age, boolean fullTime, String field){
+        this.nationalCode = nationalCode;
         this.name = name;
         this.family = family;
         this.fatherName = fatherName;
@@ -95,5 +107,13 @@ public class Professor {
 
     public void setField(String field) {
         this.field = field;
+    }
+
+    public String getNationalCode() {
+        return nationalCode;
+    }
+
+    public void setNationalCode(String nationalCode) {
+        this.nationalCode = nationalCode;
     }
 }

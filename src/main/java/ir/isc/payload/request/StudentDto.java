@@ -1,10 +1,18 @@
 package ir.isc.payload.request;
 
 import jakarta.persistence.Column;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public class StudentDto {
 
+    @NotNull
+    @Min(10)
+    @Max(10)
+    @Column(name = "nationalCode")
+    private String nationalCode;
 
     @NotBlank
     private String name;
@@ -23,6 +31,14 @@ public class StudentDto {
 
     @NotBlank
     private String field;
+
+    public String getNationalCode() {
+        return nationalCode;
+    }
+
+    public void setNationalCode(String nationalCode) {
+        this.nationalCode = nationalCode;
+    }
 
     public String getName() {
         return name;

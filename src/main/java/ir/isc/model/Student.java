@@ -1,6 +1,9 @@
 package ir.isc.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "student")
@@ -9,6 +12,12 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
+    @NotNull
+    @Min(10)
+    @Max(10)
+    @Column(name = "nationalCode")
+    private String nationalCode;
 
     @Column(name = "name")
     private String name;
@@ -32,7 +41,8 @@ public class Student {
 
     }
 
-    public Student(String name, String family, String fatherName, int age, int term, String field){
+    public Student(String nationalCode, String name, String family, String fatherName, int age, int term, String field){
+        this.nationalCode = nationalCode;
         this.name = name;
         this.family = family;
         this.fatherName = fatherName;
@@ -47,6 +57,14 @@ public class Student {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getNationalCode() {
+        return nationalCode;
+    }
+
+    public void setNationalCode(String nationalCode) {
+        this.nationalCode = nationalCode;
     }
 
     public String getName() {
