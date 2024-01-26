@@ -1,16 +1,12 @@
 package ir.isc.payload.request;
 
 import jakarta.persistence.Column;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.*;
 
 public class StudentDto {
 
     @NotNull
-    @Min(10)
-    @Max(10)
+    @Size(min=10, max =10)
     @Column(name = "nationalCode")
     private String nationalCode;
 

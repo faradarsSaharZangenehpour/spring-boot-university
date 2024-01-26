@@ -1,16 +1,17 @@
 package ir.isc.payload.request;
 
+import ir.isc.model.Course;
 import jakarta.persistence.Column;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+
+import java.util.HashSet;
+import java.util.Set;
 
 public class ProfessorDto {
 
     @NotNull
-    @Min(10)
-    @Max(10)
-    @Column(name = "nationalCode")
+    @Size(min=10, max =10)
     private String nationalCode;
 
     @NotNull
@@ -30,6 +31,8 @@ public class ProfessorDto {
 
     @NotNull
     private String field;
+
+    private Set<String> courses;
 
     public String getNationalCode() {
         return nationalCode;
@@ -85,5 +88,13 @@ public class ProfessorDto {
 
     public void setField(String field) {
         this.field = field;
+    }
+
+    public Set<String> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(Set<String> courses) {
+        this.courses = courses;
     }
 }

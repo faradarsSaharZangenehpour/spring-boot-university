@@ -1,7 +1,5 @@
 package ir.isc.controller;
 
-import ir.isc.model.Product;
-import ir.isc.model.Student;
 import ir.isc.payload.request.StudentDto;
 import ir.isc.payload.response.MessageResponse;
 import ir.isc.repository.StudentRepository;

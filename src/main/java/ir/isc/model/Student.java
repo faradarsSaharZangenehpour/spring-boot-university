@@ -1,9 +1,8 @@
 package ir.isc.model;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Max;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "student")
@@ -14,8 +13,7 @@ public class Student {
     private long id;
 
     @NotNull
-    @Min(10)
-    @Max(10)
+    @Size(min = 10, max = 10)
     @Column(name = "nationalCode")
     private String nationalCode;
 
