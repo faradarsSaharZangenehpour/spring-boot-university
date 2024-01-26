@@ -6,13 +6,14 @@ import ir.isc.payload.request.CourseDto;
 import ir.isc.payload.response.MessageResponse;
 import ir.isc.service.CourseService;
 import ir.isc.service.StudentService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
+
 
 @RestController
 public class CourseController {

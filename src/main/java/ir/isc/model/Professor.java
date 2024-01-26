@@ -40,18 +40,11 @@ public class Professor {
     @Column(name = "field")
     private String field;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(	name = "professor_course",
-            joinColumns = @JoinColumn(name = "professor_id"),
-            inverseJoinColumns = @JoinColumn(name = "course_id"))
-    @OrderColumn(name = "id")
-    private Set<Course> courses = new HashSet<>();
-
     public  Professor(){
 
     }
 
-    public Professor(String nationalCode, String name, String family, String fatherName, int age, boolean fullTime, String field, Set<Course> courses){
+    public Professor(String nationalCode, String name, String family, String fatherName, int age, boolean fullTime, String field){
         this.nationalCode = nationalCode;
         this.name = name;
         this.family = family;
@@ -59,7 +52,6 @@ public class Professor {
         this.age = age;
         this.fullTime = fullTime;
         this.field = field;
-        this.courses = courses;
     }
 
     public long getId() {
@@ -126,11 +118,4 @@ public class Professor {
         this.nationalCode = nationalCode;
     }
 
-    public Set<Course> getCourses() {
-        return courses;
-    }
-
-    public void setCourses(Set<Course> courses) {
-        this.courses = courses;
-    }
 }
