@@ -3,7 +3,9 @@ package ir.isc.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "course")
+@Table(name = "course", uniqueConstraints = {
+        @UniqueConstraint(columnNames = "name")
+})
 public class Course {
 
     @Id

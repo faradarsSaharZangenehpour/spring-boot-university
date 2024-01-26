@@ -39,7 +39,7 @@ public class ProfessorController {
 
         Professor p =this.professorService.createProfessor(professorDto);
         if (p == null){
-            return ResponseEntity.ok(new MessageResponse("Course is not Defined"));
+            return ResponseEntity.badRequest().body(new MessageResponse("Course is not Defined"));
         } else{
             return ResponseEntity.ok(new MessageResponse("Professor registered successfully!"));
         }

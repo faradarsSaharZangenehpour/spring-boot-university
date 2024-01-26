@@ -44,6 +44,7 @@ public class Professor {
     @JoinTable(	name = "professor_course",
             joinColumns = @JoinColumn(name = "professor_id"),
             inverseJoinColumns = @JoinColumn(name = "course_id"))
+    @OrderColumn(name = "id")
     private Set<Course> courses = new HashSet<>();
 
     public  Professor(){
